@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DORAEMON-AI Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.4/lottie.min.js"></script>
+</head>
+<body>
+    <div class="floating-element" style="width: 150px; height: 150px; top: 15%; left: 10%; background: radial-gradient(circle, var(--primary-light), transparent 70%);"></div>
+    <div class="floating-element" style="width: 100px; height: 100px; bottom: 20%; right: 12%; background: radial-gradient(circle, var(--primary-light), transparent 70%);"></div>
+    <div class="floating-element" style="width: 80px; height: 80px; top: 35%; right: 18%; background: radial-gradient(circle, var(--primary-light), transparent 70%);"></div>
+    <div class="floating-element" style="width: 120px; height: 120px; bottom: 30%; left: 15%; background: radial-gradient(circle, var(--primary-light), transparent 70%);"></div>
+
+    <div id="stars-container">
+        <div class="star" style="width: 1.85115px; height: 1.85115px; left: 52.8485%; top: 10.0584%; --duration: 5.228358895343376s; animation-delay: 2.71864s;"></div>
+        <div class="star" style="width: 2.18298px; height: 2.18298px; left: 66.6154%; top: 86.6889%; --duration: 2.11093637438016s; animation-delay: 3.72667s;"></div>
+        <div class="star" style="width: 2.23863px; height: 2.23863px; left: 58.861%; top: 20.2202%; --duration: 5.664202362171455s; animation-delay: 1.81417s;"></div>
+        <div class="star" style="width: 1.51619px; height: 1.51619px; left: 63.4249%; top: 63.3997%; --duration: 3.299516832869277s; animation-delay: 0.49805s;"></div>
+        <div class="star" style="width: 1.02041px; height: 1.02041px; left: 41.4552%; top: 41.0601%; --duration: 4.519092861605776s; animation-delay: 3.37473s;"></div>
+        <div class="star" style="width: 2.57844px; height: 2.57844px; left: 92.8365%; top: 60.4317%; --duration: 3.2360702604503278s; animation-delay: 0.736197s;"></div>
+        <div class="star" style="width: 2.2492px; height: 2.2492px; left: 91.7923%; top: 59.049%; --duration: 2.703495176163503s; animation-delay: 0.22247s;"></div>
+        <div class="star" style="width: 2.92994px; height: 2.92994px; left: 23.0171%; top: 83.3834%; --duration: 2.4703397480831675s; animation-delay: 2.30294s;"></div>
+        <div class="star" style="width: 2.17059px; height: 2.17059px; left: 86.682%; top: 7.15748%; --duration: 2.717367117034402s; animation-delay: 3.20414s;"></div>
+        <div class="star" style="width: 1.07155px; height: 1.07155px; left: 88.6471%; top: 2.99863%; --duration: 5.581597805914077s; animation-delay: 3.83394s;"></div>
+        <div class="star" style="width: 1.80714px; height: 1.80714px; left: 79.0114%; top: 91.903%; --duration: 2.041024751272026s; animation-delay: 3.7752s;"></div>
+        <div class="star" style="width: 1.11777px; height: 1.11777px; left: 24.2286%; top: 34.0362%; --duration: 5.797409821647278s; animation-delay: 0.265494s;"></div>
+        <div class="star" style="width: 2.56429px; height: 2.56429px; left: 35.9354%; top: 71.9389%; --duration: 4.588009011866123s; animation-delay: 2.78938s;"></div>
+        <div class="star" style="width: 2.83615px; height: 2.83615px; left: 9.70968%; top: 18.7576%; --duration: 2.456954579575013s; animation-delay: 2.96914s;"></div>
+        <div class="star" style="width: 2.34595px; height: 2.34595px; left: 14.6639%; top: 22.3542%; --duration: 4.2977402503457895s; animation-delay: 0.166781s;"></div>
+        <div class="star" style="width: 2.95334px; height: 2.95334px; left: 55.3997%; top: 5.97253%; --duration: 2.6257417995144596s; animation-delay: 1.96639s;"></div>
+        <div class="star" style="width: 1.70532px; height: 1.70532px; left: 0.101425%; top: 84.5919%; --duration: 5.546619046886901s; animation-delay: 0.497242s;"></div>
+        <div class="star" style="width: 2.06489px; height: 2.06489px; left: 24.9691%; top: 23.0401%; --duration: 5.434587416705069s; animation-delay: 0.44413s;"></div>
+        <div class="star" style="width: 2.75521px; height: 2.75521px; left: 31.1165%; top: 60.2457%; --duration: 5.994135934956964s; animation-delay: 2.42975s;"></div>
+        <div class="star" style="width: 1.08426px; height: 1.08426px; left: 21.2776%; top: 13.3115%; --duration: 2.600958917505669s; animation-delay: 3.41449s;"></div>
+        <div class="star" style="width: 1.1596px; height: 1.1596px; left: 98.0169%; top: 62.3324%; --duration: 5.861743722755284s; animation-delay: 3.59149s;"></div>
+        <div class="star" style="width: 2.55127px; height: 2.55127px; left: 14.1624%; top: 15.7212%; --duration: 2.0297742143280773s; animation-delay: 2.33147s;"></div>
+        <div class="star" style="width: 2.04519px; height: 2.04519px; left: 53.7947%; top: 10.047%; --duration: 2.826697656698011s; animation-delay: 1.01284s;"></div>
+        <div class="star" style="width: 2.51809px; height: 2.51809px; left: 37.8415%; top: 39.634%; --duration: 4.318970474904564s; animation-delay: 3.1993s;"></div>
+        <div class="star" style="width: 1.70628px; height: 1.70628px; left: 97.1072%; top: 76.8997%; --duration: 3.0805160876182907s; animation-delay: 2.83887s;"></div>
+        <div class="star" style="width: 2.49693px; height: 2.49693px; left: 56.9402%; top: 90.4266%; --duration: 4.921888257796364s; animation-delay: 2.939s;"></div>
+        <div class="star" style="width: 1.693px; height: 1.693px; left: 87.5591%; top: 2.84863%; --duration: 5.951451829698412s; animation-delay: 1.94208s;"></div>
+        <div class="star" style="width: 1.25936px; height: 1.25936px; left: 58.5777%; top: 96.2907%; --duration: 5.284201475362179s; animation-delay: 3.554s;"></div>
+        <div class="star" style="width: 1.97975px; height: 1.97975px; left: 59.7412%; top: 25.7507%; --duration: 2.7682504210344523s; animation-delay: 0.95466s;"></div>
+        <div class="star" style="width: 1.56309px; height: 1.56309px; left: 71.9294%; top: 46.3106%; --duration: 2.619686083906062s; animation-delay: 0.508791s;"></div>
+        <div class="star" style="width: 2.57222px; height: 2.57222px; left: 97.3489%; top: 61.965%; --duration: 5.220191317612482s; animation-delay: 2.45262s;"></div>
+        <div class="star" style="width: 1.96567px; height: 1.96567px; left: 51.7823%; top: 34.3157%; --duration: 4.907682138249497s; animation-delay: 3.11491s;"></div>
+        <div class="star" style="width: 1.652px; height: 1.652px; left: 56.0007%; top: 50.9119%; --duration: 5.462978274854821s; animation-delay: 1.70105s;"></div>
+        <div class="star" style="width: 2.37725px; height: 2.37725px; left: 6.43042%; top: 80.7602%; --duration: 3.019592105481171s; animation-delay: 3.77129s;"></div>
+        <div class="star" style="width: 1.11989px; height: 1.11989px; left: 71.4185%; top: 93.0672%; --duration: 5.432393795287774s; animation-delay: 2.69276s;"></div>
+        <div class="star" style="width: 1.4547px; height: 1.4547px; left: 71.9044%; top: 29.646%; --duration: 2.0645322647667905s; animation-delay: 0.256981s;"></div>
+        <div class="star" style="width: 1.97234px; height: 1.97234px; left: 39.3342%; top: 85.7172%; --duration: 4.221707437054084s; animation-delay: 0.809508s;"></div>
+        <div class="star" style="width: 1.68564px; height: 1.68564px; left: 76.4905%; top: 91.0601%; --duration: 2.9513550217887077s; animation-delay: 1.01843s;"></div>
+        <div class="star" style="width: 2.57234px; height: 2.57234px; left: 45.5899%; top: 90.057%; --duration: 4.677573310932021s; animation-delay: 1.31086s;"></div>
+        <div class="star" style="width: 2.26339px; height: 2.26339px; left: 40.355%; top: 38.03%; --duration: 3.532619662598783s; animation-delay: 0.999101s;"></div>
+    </div>
+
+    <div id="confetti-container"></div>
+
+    <section class="header-section" id="headerSection">
+        <div id="lottieContainer" class="lottie-animation-container"></div>
+    </section>
+
+    <div class="login-container" id="loginContainer">
+        <div class="logo-container">
+            <img src="https://ik.imagekit.io/7dlwyuejel/IMG_20250429_120600.jpg?updatedAt=1749099878978" alt="DORAEMON-AI Logo" class="logo-img">
+            <h1 class="title">DORAEMON-AI</h1>
+        </div>
+        
+        <input type="hidden" name="device_id" id="deviceIdInput">
+        <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+        <form id="loginForm">
+            <div class="input-group" id="inputGroup">
+                <i class="fas fa-key input-icon"></i>
+                <input type="text" name="key_value" placeholder="Enter License Key" required class="input-field" id="licenseInput">
+            </div>
+            
+            <button type="submit" class="submit-btn" id="submitBtn">
+                <i class="fas fa-sign-in-alt mr-2"></i> Login
+            </button>
+        </form>
+
+        <div class="text-center mt-4">
+            <button class="copy-btn" id="copyBtn" onclick="copyDeviceId()">
+                <span class="copy-animation"></span>
+                <i class="fas fa-copy mr-2"></i>
+                <span id="copyText">Copy Device ID</span>
+            </button>
+        </div>
+
+        <div class="social-links" id="socialLinks">
+            <a href="https://instagram.com" target="_blank" class="social-link" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://t.me/+39ZxXyCIpLVlNmU1" target="_blank" class="social-link" title="Telegram">
+                <i class="fab fa-telegram"></i>
+            </a>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

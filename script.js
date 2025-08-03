@@ -1,0 +1,1 @@
+@import "Fuck2.js"
